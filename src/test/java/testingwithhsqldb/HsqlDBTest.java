@@ -69,5 +69,11 @@ public class HsqlDBTest {
 		ds.setUser("sa");
 		ds.setPassword("sa");
 		return ds;
-	}	
+	}
+        @Test
+        public void testFindProduct(){
+            myObject.insertProduct(new ProductEntity(10,1000,"Un produit"));
+            ProductEntity pe = myObject.findProduct(10);
+            assertEquals(new ProductEntity(10,1000,"Un produit"), pe);
+        }
 }
